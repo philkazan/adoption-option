@@ -5,11 +5,11 @@ class PetsIndexContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      foods: [],
+      pets: [],
       zipCode: '',
       sex: ''
     }
-    this.retrieveFoods = this.retrieveFoods.bind(this);
+    this.retrievePets = this.retrievePets.bind(this);
     this.updateZipCode = this.updateZipCode.bind(this);
     this.updateSex = this.updateSex.bind(this);
   }
@@ -23,49 +23,49 @@ class PetsIndexContainer extends Component {
     this.setState({ sex: event.target.value })
   }
 
-  retrieveFoods() {
+  retrievePets() {
     $.ajax({
       url: '/api/v1/pets/',
       contentType: 'application/json'
     })
     .done(data => {
-      this.setState({ foods: data });
+      this.setState({ pets: data });
     });
   }
 
   componentDidMount() {
-    this.retrieveFoods();
+    this.retrievePets();
   }
 
   render() {
-    let filteredFoods = this.state.foods.filter(
-      (food) => {
-        return food.location.toLowerCase().indexOf(this.state.zipCode.toLowerCase()) !== -1;
+    let filteredPets = this.state.pets.filter(
+      (pet) => {
+        return pet.location.toLowerCase().indexOf(this.state.zipCode.toLowerCase()) !== -1;
       }
     );
 
-    filteredFoods = filteredFoods.filter(
-      (food) => {
+    filteredPets = filteredPets.filter(
+      (pet) => {
         if(this.state.sex === "M"){
-          return food.sex === "M"
+          return pet.sex === "M"
         }else if(this.state.sex === "F"){
-          return food.sex === "F"
+          return pet.sex === "F"
         }else{
-          return food.sex
+          return pet.sex
         }
       }
     );
 
-  let filter = filteredFoods.map(food => {
+  let filter = filteredPets.map(pet => {
         return(
           <PetTile
-            key={food.id}
-            id={food.id}
-            name={food.name}
-            sex={food.sex}
-            age={food.age}
-            location={food.location}
-            image={food.image}
+            key={pet.id}
+            id={pet.id}
+            name={pet.name}
+            sex={pet.sex}
+            age={pet.age}
+            location={pet.location}
+            image={pet.image}
           />
         );
       });
