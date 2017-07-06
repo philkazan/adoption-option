@@ -1,7 +1,7 @@
 {
-  "name": "ptd",
+  "name": "adoption-option",
   "version": "1.0.0",
-  "description": "",
+  "description": "a pet adoption aggregators",
   "main": "webpack.config.js",
   "scripts": {
     "heroku-postbuild": "NODE_ENV=production npm run webpack -- -p",
