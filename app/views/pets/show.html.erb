@@ -1,0 +1,17 @@
+
+<div class="medium-8 medium-centered columns">
+  <div class="card__show">
+    <div class="card-section">
+      <h2>Hi, my name is <%= @pet.name %><h2>
+      <%= image_tag (@pet.image)%>
+      <h3><%= @pet.name %>'s story</h3>
+      <p><%= @pet.description %><p>
+    </div>
+
+    <div class="card-section">
+      <i class="fa fa-thumbs-up" aria-hidden="false"></i><button class="button" id="<%=@pet.id%>" class="adopt">Adopt</button></br>
+      <i class="fa fa-thumbs-up" aria-hidden="false"></i><button class="button" id="<%=@pet.id%>" class="favorite">Favorite</button></br>
+    </div>
+
+  </div>
+</div>

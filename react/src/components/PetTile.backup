@@ -1,0 +1,20 @@
+import React from 'react';
+import { Link } from 'react-router';
+
+const PetTile = ({ id, name, sex, location, image }) => {
+  let imgStyle = {width: "100%"}
+    return(
+        <div className="card">
+          <a href={`/pets/${id}`}>
+            <img src={image} style={imgStyle}/>
+            <div className="">
+              <h1>{name}</h1>
+              <h3>Sex: {sex} </h3>
+              <h3>Zip: {location}</h3>
+            </div>
+          </a>
+        </div>
+    )
+  }
+
+export default PetTile;

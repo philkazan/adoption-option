@@ -1,0 +1,114 @@
+import React, { Component }  from 'react';
+import PetTile from '../components/PetTile';
+
+class PetsIndexContainer extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      pets: [],
+      currentPage: 1,
+      petsPerPage: 12,
+      search: ''
+    }
+    this.retrievePets = this.retrievePets.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
+    this.handlePageNumberClick = this.handlePageNumberClick.bind(this);
+  }
+
+  handlePageNumberClick(event) {
+    this.setState({ currentPage: event.target.id});
+  }
+
+  updateSearch(event) {
+    this.setState({ currentPage: 1});
+    this.setState({ search: event.target.value });
+  }
+
+  retrievePets() {
+    $.ajax({
+      url: '/api/v1/pets/',
+      contentType: 'application/json'
+    })
+    .done(data => {
+      this.setState({ pets: data });
+    });
+  }
+
+  componentDidMount() {
+    this.retrievePets();
+  }
+
+
+
+  render(){
+    let filteredPets = this.state.pets.filter(
+      (pet) => {
+        return pet.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+        pet.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+      }
+    );
+
+    let lastPet = this.state.currentPage * this.state.petsPerPage;
+    let firstPet = lastPet - this.state.petsPerPage;
+    let currentPets = filteredPets.slice(firstPet, lastPet);
+
+
+    let pets = this.state.pets.map(pet => {
+        return(
+          <PetTile
+            key={pet.id}
+            id={pet.id}
+            name={pet.name}
+            sex={pet.sex}
+            age={pet.age}
+            location={pet.location}
+            image={pet.image}
+          />
+        );
+      });
+
+    let pageNumbers = [];
+    for(let i = 1; i <= Math.ceil(filteredPets.length / this.state.petsPerPage); i++) {
+      pageNumbers.push(i);
+    };
+
+    let renderPageNumbers = pageNumbers.map(number => {
+      return(
+        <li
+          key={number}
+          id={number}
+          onClick={this.handlePageNumberClick}
+        >
+          {number}
+        </li>
+      )
+    })
+
+    return(
+      <div>
+        <div className="row">
+          <div className="small-12 columns medium-6 columns large-6 columns">
+            <input
+              className="search-bar"
+              placeholder="Search"
+              type="text"
+              value={this.state.search}
+              onChange={this.updateSearch}
+            />
+          </div>
+        </div>
+
+       <div className="large-10 large-centered columns">
+          <div className="food-box">
+            {pets}
+          </div>
+        </div>
+      <ul>
+        Page {renderPageNumbers}
+      </ul>
+  </div>
+    )
+  }
+};
+
+export default PetsIndexContainer;

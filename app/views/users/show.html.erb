@@ -1,0 +1,26 @@
+<h2>User Profile</h2></br>
+<div class="medium-4 medium-centered columns">
+   <div class="card">
+     <div class="card-section">
+       <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+       <h6> Email: <%= @user.email %></h6>
+       <button type="button" class="button"><%= link_to "Delete Account", user_path(current_user), data: {:confirm => 'Are you sure?'}, :method => :delete  %></button></br>
+       <button type="button" class="button"><%= link_to "Edit Profile", edit_user_registration_path %></button>
+    </div>
+    <div class="card-section">
+      <h4>Favorites:</h4>
+      <% @favorites = Favorite.where(user_id: @user.id).order("created_at") %>
+       <% @favorites.each do |favorite| %>
+       <span data-tooltip aria-haspopup="true" class="has-tip" title="<%=favorite.pet.name %>" id="<%= favorite.id %>"><%= link_to favorite.pet.name, pet_path(favorite.pet_id) %></span>
+       <%= button_to('Destroy', pet_favorite_path(favorite.pet_id, favorite.id), :method => 'delete', :class => 'btn btn-large btn-primary')  %>
+       <% end %>
+   </div>
+   <div class="card-section">
+     <h4>Applications:</h4>
+     <% @apps = App.where(user_id: @user.id).order("created_at") %>
+      <% @apps.each do |app| %>
+      <span data-tooltip aria-haspopup="true" class="has-tip" title="<%=app.pet.name %>"><%= link_to app.pet.name, pet_path(app.pet_id) %></span>
+      <% end %>
+  </div>
+  </div>
+</div>

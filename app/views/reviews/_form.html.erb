@@ -1,0 +1,39 @@
+<%= form_for [@food,  @review] do |f| %>
+<%= @food.name %>
+  <div class="row">
+    <div class="small-10 small-center columns">
+      <%= f.label :rating %>
+      <%= f.text_field :rating %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-10 small-center columns">
+      <%= f.label :body, "Review" %>
+      <%= f.text_field :body %>
+    </div>
+  </div>
+
+    <div class="field">
+      <%= f.hidden_field :food_id, value: @food.id %>
+    </div>
+
+  <% if @review.id == nil %>
+    <div class="row">
+      <div class="actions">
+        <div class="small-10 small-center columns">
+          <%= f.submit "Create Review" %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="actions">
+        <div class="small-10 small-center columns">
+          <%= f.submit "Update Review" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
