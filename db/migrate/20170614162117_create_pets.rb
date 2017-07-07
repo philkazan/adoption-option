@@ -10,6 +10,7 @@ class CreatePets < ActiveRecord::Migration[5.1]
       t.string :age
       t.string :image
       t.string :description
+      t.string :type
 
       t.timestamps
     end
