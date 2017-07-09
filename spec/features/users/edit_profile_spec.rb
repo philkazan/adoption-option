@@ -1,16 +1,8 @@
 require "rails_helper"
 
 feature "user can edit profile" do
-
-  let(:user) { User.create(
-    first_name: 'first',
-    last_name: 'last',
-    email: 'whateever@yahoo.com',
-    password: 'password',
-    password_confirmation: 'password'
-  )}
-
   scenario "user visits profile page and edits profile" do
+    user = FactoryGirl.create(:user)
 
     sign_in_as(user)
     visit user_path(user)
@@ -28,6 +20,7 @@ feature "user can edit profile" do
   end
 
   scenario "user visits profile page and unsuccessfully edits profile" do
+    user = FactoryGirl.create(:user)
 
     sign_in_as(user)
     visit user_path(user)

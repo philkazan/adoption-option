@@ -24,7 +24,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'capybara'
   gem 'rspec-rails'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'launchy'
   gem 'shoulda-matchers', require: false
   gem 'valid_attribute'

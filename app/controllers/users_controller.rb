@@ -26,10 +26,10 @@ class UsersController < ApplicationController
       flash[:alert] = "You do not have permission to delete that user."
       redirect_to :root
     else
-      reviews = Review.where(user_id: current_user)
-      reviews.destroy_all
-      foods = Food.where(user_id: current_user)
-      foods.destroy_all
+      favorites = Favorite.where(user_id: current_user)
+      favorites.destroy_all
+      apps = App.where(user_id: current_user)
+      apps.destroy_all
       current_user.destroy
       respond_to do |format|
         format.html { redirect_to root_path, notice: 'Profile was successfully delete.' }
