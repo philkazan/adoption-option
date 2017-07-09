@@ -1,35 +1,21 @@
-  <div class="pet_content">
-      <div class="row">
-        <div class="large-5 column">
-          <%= image_tag (@pet.image) %>
-        </div>
-        <div class="large-7 column">
-          <h2 class="pet-header">Hi, my name is <%= @pet.name %><h2>
-        </div>
-      </div>
-      <div class="row card-section">
-        <div class="large-12 column button-wrapper">
-          <button class="button" id="<%=@pet.id%>" class="adopt">Adopt Me</button>
-          <button class="button" id="<%=@pet.id%>" class="favorite">Favorite Me</button>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="card-divider">
-          <h1 class="pet-story"><%= @pet.name %>'s story</h1>
-        </div>
-        <div class="card-section">
-          <p class="specs"><%= @pet.description %></p>
-        </div>
-      </div>
-    </div>
-
-<!-- <div class="row">
-  <div class="large-7 column">
-    <%= image_tag (@pet.image) %>
+<div class="row">
+  <div class="medium-6 columns">
+    <img class="thumbnail" src="<%= @pet.image %>">
   </div>
-  <div className="large-5 column">
-    <h2 className="pet_header">Hi, my name is <%= @pet.name %><h2>
+  <div class="medium-6 large-5 columns">
+    <h3><%= @pet.name %></h3>
+    <p><%= @pet.age %> &#9679; <%=@pet.sex%> &#9679; <%=@pet.size%></p>
+
+
+    <a href="#" class="button large expanded">Adopt Me</a>
+    <a href="#" class="button large expanded">Favorite Me</a>
+</div>
+</div>
+<div class="row">
+  <div class="card-divider">
+    <h1 class="pet-story"><%= @pet.name %>'s story</h1>
   </div>
-</div> -->
+  <div class="card-section">
+    <p class="specs"><%= @pet.description %></p>
+  </div>
+</div>

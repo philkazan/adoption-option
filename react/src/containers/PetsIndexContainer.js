@@ -124,20 +124,6 @@ class PetsIndexContainer extends Component {
     );
 
   let filter = filteredPets.map(pet => {
-    if(pet.sex == "M") pet.sex = "Male";
-    if(pet.sex == "F") pet.sex = "Female";
-    if (pet.size == "S") {
-      pet.size = "Small"
-    } else if (pet.size == "M") {
-      pet.size = "Medium"
-    } else if (pet.size == "L"){
-      pet.size = "Large"
-    } else if (pet.size == "XL") {
-      pet.size = "Extra Large"
-    }
-    if(!pet.image){
-      pet.image = 'http://i.imgur.com/S94DBcZ.png';
-    }
         return(
           <PetTile
             key={pet.id}

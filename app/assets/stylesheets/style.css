@@ -110,8 +110,8 @@ p {
 }
 
 .top-bar-right .menu li a{
-  color: white;
-  background: #5da8a0;
+  color: #2e89f7;
+  background: white;
 }
 
 div.food-card {
@@ -141,6 +141,11 @@ div.food-card {
   font-weight: bold;
 }
 
+.button-wrapper {
+  margin: auto;
+  text-align: center;
+}
+
 .button {
 	background-color:#2e89f7;
 	-moz-border-radius:3px;
@@ -153,6 +158,7 @@ div.food-card {
 	font-family:Arial;
 	font-size:20px;
 	padding:9px 23px;
+  width: 160px;
 	text-decoration:none;
 }
 .button:hover {
@@ -161,10 +167,6 @@ div.food-card {
 .button:active {
 	position:relative;
 	top:1px;
-}
-
-.button-wrapper {
-  margin: 0 auto;
 }
 
 .attributes {
