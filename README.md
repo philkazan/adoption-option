@@ -1,7 +1,7 @@
 # README
-![Build Status](https://codeship.com/projects/eedf35a0-31b1-0135-88a3-36beedd22907/status?branch=master)
-![Code Climate](https://codeclimate.com/github/cbirdsong215/Foodie-Review.png)
-![Coverage Status](https://coveralls.io/repos/cbirdsong215/Foodie-Review/badge.png)
+![Build Status](https://codeship.com/projects/1c261d10-470f-0135-d6db-760fd79f50b1/status?branch=master)
+![Code Climate](https://codeclimate.com/github/philkazan/adoption-option.png)
+![Coverage Status](https://coveralls.io/repos/philkazan/adoption-option/badge.png)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
