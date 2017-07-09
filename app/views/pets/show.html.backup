@@ -1,0 +1,24 @@
+  <div class="pet_content">
+      <div class="row">
+          <h2 class="pet-header">Hi, my name is <%= @pet.name %><h2>
+          <div>
+            <%= image_tag (@pet.image) %>
+          </div>
+      </div>
+      <div class="row card-section">
+        <div class="button-wrapper">
+          <button class="button" id="<%=@pet.id%>" class="adopt">Adopt Me</button>
+          <button class="button" id="<%=@pet.id%>" class="favorite">Favorite Me</button>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="card-divider">
+          <h1 class="pet-story"><%= @pet.name %>'s story</h1>
+        </div>
+        <div class="card-section">
+          <p class="specs"><%= @pet.description %></p>
+        </div>
+      </div>
+    </div>
