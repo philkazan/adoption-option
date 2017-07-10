@@ -1,6 +1,5 @@
 exclude_paths:
-- "lib/foundation.js"
-- "spec/**"
-- "public/**"
-- "public/**"
-- "config/**"
+- spec/**
+- public/**
+- public/**
+- config/**
