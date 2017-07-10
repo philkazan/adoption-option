@@ -48,15 +48,5 @@ result_sets.each do |result_set|
       location:  pet["contact"] ? pet["contact"]["zip"]["$t"] : nil,
       image: pet["media"]["photos"]["photo"][7] ? pet["media"]["photos"]["photo"][7]["$t"] : 'http://i.imgur.com/S94DBcZ.png'
     )
-    # Pet.create(
-    #   name: pet["name"]["$t"],
-    #   animal: pet["animal"]["$t"],
-    #   description: pet["description"]["$t"],
-    #   size: pet["size"]["$t"],
-    #   sex: pet["sex"]["$t"],
-    #   location: pet["contact"]["zip"]["$t"],
-    #   age: pet["age"]["$t"],
-    #   image: pet["media"]["photos"]["photo"][7]["$t"]
-    # )
   end
 end

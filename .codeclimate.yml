@@ -1,6 +1,10 @@
+JavaScript: true
+Ruby: true
+Python: false
+PHP: false
+
 exclude_paths:
-- "lib/foundation.js"
-- "spec/**"
-- "public/**"
-- "public/**"
-- "config/**"
+- spec/**
+- public/**
+- public/**
+- config/**
